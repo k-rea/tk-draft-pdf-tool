@@ -1,4 +1,4 @@
-# 📄 PDF 加工ツール
+# 📄 PDF 加工ツール(開発者向け)
 
 透かし追加、ページ番号挿入、パスワード保護、ファイル名変更に対応した PDF 加工ツールです。  
 Python 3.11 + Poetry + PyPDF + ReportLab を使用しています。
@@ -53,7 +53,6 @@ poetry run python main.py [オプション]
 👉 https://www.python.org/downloads/release/python-3119/
  最新版ではなくて、**Python 3.11.x** を選んでください。
 
-**インストール時に「Add Python to PATH」にチェックを入れてください。**
 
 インストール後、**コマンドプロンプト**を開いて以下を入力：
 ```shell
@@ -65,6 +64,9 @@ python --version
 ```shell
 Python 3.11.x
 ```
+
+エラーが出た場合は、PATHが通っていない可能性があるので、環境変数にPATHを追加してください。
+
 ---
 
 ## 🔽 Step 2: ツールのダウンロード
