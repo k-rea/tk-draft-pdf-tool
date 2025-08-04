@@ -86,7 +86,7 @@ pip install poetry
 
 ## ✅ Step 4: 必要なライブラリのインストール
 
-以下のコマンドを「`pdf-tool`」フォルダ内で実行します：
+以下のコマンドを解凍フォルダ内で実行します：
 
 ```shell
 cd path\to\pdf-tool
@@ -94,33 +94,18 @@ poetry install
 ```
 ---
 
-## ✅ Step 4: 実行用バッチファイルの作成（`run_tool.bat`）
-
-`pdf-tool` フォルダ内に以下の内容で `run_tool.bat` ファイルを作成してください：
-
-```bat
-@echo off
-set /p PREFIX=ファイル名の先頭につけたい文字（例: P_）:
-set /p SUFFIX=ファイル名の最後につけたい文字（例: _draft）:
-
-echo.
-echo PDF加工を開始します...
-echo プレフィックス: %PREFIX%
-echo サフィックス: %SUFFIX%
-echo.
-
-poetry run python main.py --all --prefix "%PREFIX%" --suffix "%SUFFIX%"
-
-echo.
-pause
-```
----
-
 ## ✅ 使い方
 
-1. `run_tool.bat` を **ダブルクリック**します  
-2. 表示された画面で、ファイル名の **接頭語（prefix）** と **接尾語（suffix）** を入力  
-3. 自動でPDFが加工されて `output/` に保存されます！
+1. コマンドプロンプトで解答したフォルダに移動
+例
+```shell
+cd path\to\pdf-tool
+```
+2. 移動先で下記コマンドを実行
+
+```shell
+poetry run python main.py --watermark --password --prefix "" --suffix "(draft)"
+```
 
 ---
 
