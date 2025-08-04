@@ -4,7 +4,7 @@ from pypdf import PdfReader, PdfWriter
 import os
 
 
-def process_pdf(input_path, output_dir, do_watermark, do_pagenumber, do_password, sign_pdf, draft_pdf):
+def process_pdf(input_path, output_dir, do_watermark, do_pagenumber, do_password, sign_pdf, draft_pdf, prefix, suffix):
     filename = os.path.basename(input_path)
     reader = PdfReader(input_path)
     writer = PdfWriter()
@@ -34,13 +34,21 @@ def process_pdf(input_path, output_dir, do_watermark, do_pagenumber, do_password
 
     writer.page_layout = "/SinglePage"
 
+    # PDFタイトルを設定
+    writer.add_metadata({
+        "/Title": f"{prefix}{filename}{suffix}"
+    })
+
     os.makedirs(output_dir, exist_ok=True)
-    with open(os.path.join(output_dir, f"processed_{filename}"), "wb") as f:
+    name, ext = os.path.splitext(filename)
+    new_filename = f"{prefix}{name}{suffix}{ext}"
+    output_path = os.path.join(output_dir, new_filename)
+    with open(output_path, "wb") as f:
         writer.write(f)
     print(f"✅ 出力完了: {filename}")
 
 
-def process_all_pdfs(input_dir, output_dir, sign_path, draft_path, watermark, pagenumber, password):
+def process_all_pdfs(input_dir, output_dir, sign_path, draft_path, watermark, pagenumber, password, prefix, suffix):
     if not os.path.exists(sign_path) or not os.path.exists(draft_path):
         print("❌ sign.pdf または draft.pdf が見つかりません")
         return
@@ -61,7 +69,9 @@ def process_all_pdfs(input_dir, output_dir, sign_path, draft_path, watermark, pa
             do_pagenumber=pagenumber,
             do_password=password,
             sign_pdf=sign_pdf,
-            draft_pdf=draft_pdf
+            draft_pdf=draft_pdf,
+            prefix=prefix,
+            suffix=suffix
         )
 
     print("\n🎉 すべての処理が完了しました。")
