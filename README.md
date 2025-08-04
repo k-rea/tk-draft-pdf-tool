@@ -50,7 +50,7 @@ poetry run python main.py [オプション]
 
 以下のリンクから「**Python 3.11.x**」をダウンロードしてインストールします：
 
-👉 https://www.python.org/downloads/
+👉 https://www.python.org/downloads/release/python-3119/
  最新版ではなくて、**Python 3.11.x** を選んでください。
 
 **インストール時に「Add Python to PATH」にチェックを入れてください。**
@@ -71,9 +71,8 @@ Python 3.11.x
 
 以下のページから「Code ▾ → Download ZIP」をクリックして、ツールをダウンロード・解凍してください：
 
-👉 [https://github.com/your-user-name/pdf-tool](https://github.com/your-user-name/pdf-tool)
+👉 [https://github.com/k-rea/tk-draft-pdf-tool](https://github.com/k-rea/tk-draft-pdf-tool)
 
-解凍すると `pdf-tool-main/` フォルダができるので、その中で作業を進めてください。---
 
 ## ✅ Step 3: Poetry のインストール
 
